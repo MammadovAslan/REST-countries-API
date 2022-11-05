@@ -166,7 +166,7 @@ button:active {
   padding-right: 10px;
 }
 #wrapper .container #detailed-information .inform-container {
-  padding: 20px 0;
+  padding: 50px 0;
   display: flex;
   justify-content: space-between;
   gap: 100px;
@@ -178,11 +178,11 @@ button:active {
   }
 }
 #wrapper .container #detailed-information .inform-container .flag img {
-  width: 45vw;
+  width: 40em;
 }
 @media (max-width: 575px) {
   #wrapper .container #detailed-information .inform-container .flag img {
-    width: 80vw;
+    width: 20em;
   }
 }
 #wrapper .container #detailed-information .inform-container .information {

@@ -156,20 +156,19 @@ button {
         }
       }
       .inform-container {
-        padding: 20px 0;
+        padding: 50px 0;
         display: flex;
         justify-content: space-between;
         gap: 100px;
-
         @media (max-width: 575px) {
           flex-direction: column;
           gap: 50px;
         }
         .flag {
           img {
-            width: 45vw;
+            width: 40em;
             @media (max-width: 575px) {
-              width: 80vw;
+              width: 20em;
             }
           }
         }
