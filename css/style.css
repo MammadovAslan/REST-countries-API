@@ -1,0 +1,250 @@
+* {
+  margin: 0;
+  padding: 0;
+  font-family: "Nunito Sans", sans-serif;
+  color: hsl(0deg, 0%, 100%);
+}
+
+body {
+  background-color: hsl(205deg, 26%, 17%);
+}
+
+button {
+  cursor: pointer;
+  transition: 0.2s ease;
+}
+button:hover {
+  transform: scale(1.05);
+}
+button:active {
+  transform: scale(1);
+}
+
+#wrapper .header {
+  padding: 20px 66px;
+  background-color: hsl(209deg, 23%, 22%);
+}
+#wrapper .container {
+  height: 100%;
+  position: relative;
+}
+#wrapper .container #search-input,
+#wrapper .container #filter {
+  padding: 12px;
+  background-color: hsl(209deg, 23%, 22%);
+  border: none;
+  outline: none;
+  border-radius: 8px;
+}
+#wrapper .container .forms {
+  padding: 24px 12px;
+  display: flex;
+  gap: 30px;
+  flex-direction: column;
+  justify-content: space-between;
+}
+@media (min-width: 556px) {
+  #wrapper .container .forms {
+    flex-direction: row;
+    gap: 0;
+    padding: 50px 66px;
+  }
+}
+#wrapper .container .forms #search-form {
+  width: 100%;
+  position: relative;
+}
+@media (min-width: 556px) {
+  #wrapper .container .forms #search-form {
+    width: 40%;
+  }
+}
+#wrapper .container .forms #search-form #search-input {
+  padding-left: 12%;
+  width: 100%;
+  height: 100%;
+}
+#wrapper .container .forms #search-form .search-button {
+  position: absolute;
+  background: transparent;
+  border: none;
+  font-size: 18px;
+  top: 25%;
+  left: 5%;
+  cursor: pointer;
+  transition: 0.1s ease;
+}
+#wrapper .container .forms #search-form .search-button:hover {
+  transform: scale(1.1);
+}
+#wrapper .container .forms #search-form .search-button:active {
+  transform: scale(1);
+}
+#wrapper .container .forms #filter-form {
+  width: 60%;
+}
+@media (min-width: 556px) {
+  #wrapper .container .forms #filter-form {
+    width: 15%;
+  }
+}
+#wrapper .container .forms #filter-form #filter {
+  width: 100%;
+  height: 100%;
+}
+#wrapper .container #countries-container {
+  display: grid;
+  justify-items: center;
+  gap: 55px;
+}
+@media (min-width: 1142px) {
+  #wrapper .container #countries-container {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+@media (max-width: 1140px) and (min-width: 864px) {
+  #wrapper .container #countries-container {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+@media (max-width: 864px) and (min-width: 574px) {
+  #wrapper .container #countries-container {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+#wrapper .container #countries-container .country {
+  height: 290px;
+  width: 228px;
+  background-color: hsl(209deg, 23%, 22%);
+  border-radius: 8px;
+  transition: 0.2s ease;
+  cursor: pointer;
+}
+#wrapper .container #countries-container .country:hover {
+  box-shadow: 0px 0px 24px 0px hsl(200deg, 15%, 8%);
+}
+#wrapper .container #countries-container .country:active {
+  box-shadow: none;
+}
+#wrapper .container #countries-container .country img {
+  border-radius: 8px 8px 0 0;
+  height: 50%;
+  width: 100%;
+}
+#wrapper .container #countries-container .country .info-container {
+  padding: 18px;
+  font-size: 12px;
+}
+#wrapper .container #countries-container .country .info-container .country-name {
+  margin-bottom: 18px;
+  font-size: 16px;
+}
+#wrapper .container #countries-container .country .info-container .info {
+  margin-bottom: 5px;
+}
+#wrapper .container #detailed-information {
+  position: absolute;
+  background-color: hsl(205deg, 26%, 17%);
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  padding: 75px 60px;
+}
+@media (max-width: 575px) {
+  #wrapper .container #detailed-information {
+    padding: 45px;
+  }
+}
+#wrapper .container #detailed-information .back-button {
+  background-color: hsl(209deg, 23%, 22%);
+  padding: 12px 34px;
+  border: none;
+  box-shadow: 0px 0px 13px 0px rgba(0, 0, 0, 0.75);
+}
+#wrapper .container #detailed-information .back-button i {
+  padding-right: 10px;
+}
+#wrapper .container #detailed-information .inform-container {
+  padding: 20px 0;
+  display: flex;
+  justify-content: space-between;
+  gap: 100px;
+}
+@media (max-width: 575px) {
+  #wrapper .container #detailed-information .inform-container {
+    flex-direction: column;
+    gap: 50px;
+  }
+}
+#wrapper .container #detailed-information .inform-container .flag img {
+  width: 45vw;
+}
+@media (max-width: 575px) {
+  #wrapper .container #detailed-information .inform-container .flag img {
+    width: 80vw;
+  }
+}
+#wrapper .container #detailed-information .inform-container .information {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+#wrapper .container #detailed-information .inform-container .information .country-name {
+  margin: 0 0 15px 0;
+}
+@media (min-width: 575px) {
+  #wrapper .container #detailed-information .inform-container .information .country-name {
+    margin: 20px 0 0 18px;
+  }
+}
+#wrapper .container #detailed-information .inform-container .information .country-info {
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  gap: 15px;
+  margin-bottom: 15px;
+}
+@media (min-width: 575px) {
+  #wrapper .container #detailed-information .inform-container .information .country-info {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0;
+  }
+  #wrapper .container #detailed-information .inform-container .information .country-info .info {
+    padding-bottom: 12px;
+  }
+  #wrapper .container #detailed-information .inform-container .information .country-info .population {
+    grid-column: 1/2;
+    grid-row: 5/6;
+  }
+  #wrapper .container #detailed-information .inform-container .information .country-info .top-level-domain {
+    grid-column: 2/3;
+    grid-row: 1/2;
+  }
+  #wrapper .container #detailed-information .inform-container .information .country-info .languages {
+    grid-column: 2/3;
+    grid-row: 3/4;
+  }
+  #wrapper .container #detailed-information .inform-container .information .country-info .currencies {
+    grid-column: 2/3;
+    grid-row: 2/3;
+  }
+}
+#wrapper .container #detailed-information .inform-container .information .borders {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+#wrapper .container #detailed-information .inform-container .information .borders .border-countrie {
+  background-color: hsl(209deg, 23%, 22%);
+  border: none;
+  padding: 8px 18px;
+  margin-bottom: 24px;
+}
+
+.show {
+  display: grid !important;
+}
+
+.hide {
+  display: none !important;
+}

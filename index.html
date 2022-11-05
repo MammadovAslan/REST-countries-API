@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
+      integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Nunito+Sans&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/style.css" />
+    <title>REST Countries API</title>
+  </head>
+  <body>
+    <div id="wrapper">
+      <header class="header">
+        <h3 class="title">Where in the world?</h3>
+      </header>
+      <main class="container">
+        <div class="forms">
+          <form id="search-form">
+            <button class="search-button"><i class="fa-solid fa-magnifying-glass"></i></button>
+            <input
+              type="search"
+              id="search-input"
+              autocomplete="off"
+              placeholder="Search for a country..."
+            />
+          </form>
+          <form id="filter-form">
+            <select id="filter">
+              <option value="All" id="option-all" class="region-option">All</option>
+              <option value="Africa" id="option-africa" class="region-option">Africa</option>
+              <option value="Americas" id="option-america" class="region-option">Americas</option>
+              <option value="Asia" id="option-asia" class="region-option">Asia</option>
+              <option value="Oceania" id="option-oceania" class="region-option">Oceania</option>
+              <option value="Europe" id="option-europe" class="region-option">Europe</option>
+            </select>
+          </form>
+        </div>
+        <div id="countries-container" class="show"></div>
+      </main>
+    </div>
+    <script src="js/app.js"></script>
+  </body>
+</html>
