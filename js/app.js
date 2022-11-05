@@ -79,7 +79,6 @@ const createCountryCard = (country) => {
   countryCard.addEventListener("click", function () {
     countriesContainer.classList.replace("show", "hide");
     showDetailedInfo(country);
-    console.log(country);
   });
   return countryCard;
 };

@@ -178,12 +178,8 @@ button:active {
   }
 }
 #wrapper .container #detailed-information .inform-container .flag img {
-  width: 40em;
-}
-@media (max-width: 575px) {
-  #wrapper .container #detailed-information .inform-container .flag img {
-    width: 20em;
-  }
+  width: 100%;
+  height: 300px;
 }
 #wrapper .container #detailed-information .inform-container .information {
   display: flex;

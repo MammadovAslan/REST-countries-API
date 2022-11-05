@@ -166,10 +166,8 @@ button {
         }
         .flag {
           img {
-            width: 40em;
-            @media (max-width: 575px) {
-              width: 20em;
-            }
+            width: 100%;
+            height: 300px;
           }
         }
         .information {
