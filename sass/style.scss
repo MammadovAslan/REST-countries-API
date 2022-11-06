@@ -1,14 +1,13 @@
 @import "./utils/variables";
+@import "./utils/mixins";
 
 * {
   margin: 0;
   padding: 0;
   font-family: "Nunito Sans", sans-serif;
-  color: $white;
 }
 
 body {
-  background-color: $main;
 }
 
 button {
@@ -25,7 +24,15 @@ button {
 #wrapper {
   .header {
     padding: 20px 66px;
-    background-color: $darkBlue;
+    display: flex;
+    justify-content: space-between;
+    .checkbox-label {
+      position: relative;
+      #themes-switch {
+        position: absolute;
+        z-index: -1;
+      }
+    }
   }
   .container {
     height: 100%;
@@ -33,12 +40,14 @@ button {
     #search-input,
     #filter {
       padding: 12px;
-      background-color: $darkBlue;
       border: none;
       outline: none;
       border-radius: 8px;
     }
     .forms {
+      * {
+        color: inherit;
+      }
       padding: 24px 12px;
       display: flex;
       gap: 30px;
@@ -106,7 +115,6 @@ button {
       .country {
         height: 290px;
         width: 228px;
-        background-color: $darkBlue;
         border-radius: 8px;
         transition: 0.2s ease;
         cursor: pointer;
@@ -137,17 +145,18 @@ button {
     }
     #detailed-information {
       position: absolute;
-      background-color: $main;
       top: 0;
       right: 0;
       left: 0;
       bottom: 0;
       padding: 75px 60px;
+      * {
+        color: inherit;
+      }
       @media (max-width: 575px) {
         padding: 45px;
       }
       .back-button {
-        background-color: $darkBlue;
         padding: 12px 34px;
         border: none;
         box-shadow: 0px 0px 13px 0px rgba(0, 0, 0, 0.75);
@@ -160,14 +169,15 @@ button {
         display: flex;
         justify-content: space-between;
         gap: 100px;
-        @media (max-width: 575px) {
+        @media (max-width: 988px) {
           flex-direction: column;
           gap: 50px;
         }
         .flag {
           img {
-            width: 100%;
-            height: 300px;
+            max-width: 100%;
+            width: 500px;
+            max-height: 300px;
           }
         }
         .information {
@@ -214,7 +224,6 @@ button {
             gap: 12px;
             flex-wrap: wrap;
             .border-countrie {
-              background-color: $darkBlue;
               border: none;
               padding: 8px 18px;
               margin-bottom: 24px;
@@ -232,4 +241,12 @@ button {
 
 .hide {
   display: none !important;
+}
+
+.light-mode {
+  @include light-mode;
+}
+
+.dark-mode {
+  @include dark-mode;
 }

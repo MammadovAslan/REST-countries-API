@@ -2,11 +2,6 @@
   margin: 0;
   padding: 0;
   font-family: "Nunito Sans", sans-serif;
-  color: hsl(0deg, 0%, 100%);
-}
-
-body {
-  background-color: hsl(205deg, 26%, 17%);
 }
 
 button {
@@ -22,7 +17,15 @@ button:active {
 
 #wrapper .header {
   padding: 20px 66px;
-  background-color: hsl(209deg, 23%, 22%);
+  display: flex;
+  justify-content: space-between;
+}
+#wrapper .header .checkbox-label {
+  position: relative;
+}
+#wrapper .header .checkbox-label #themes-switch {
+  position: absolute;
+  z-index: -1;
 }
 #wrapper .container {
   height: 100%;
@@ -31,7 +34,6 @@ button:active {
 #wrapper .container #search-input,
 #wrapper .container #filter {
   padding: 12px;
-  background-color: hsl(209deg, 23%, 22%);
   border: none;
   outline: none;
   border-radius: 8px;
@@ -42,6 +44,9 @@ button:active {
   gap: 30px;
   flex-direction: column;
   justify-content: space-between;
+}
+#wrapper .container .forms * {
+  color: inherit;
 }
 @media (min-width: 556px) {
   #wrapper .container .forms {
@@ -115,7 +120,6 @@ button:active {
 #wrapper .container #countries-container .country {
   height: 290px;
   width: 228px;
-  background-color: hsl(209deg, 23%, 22%);
   border-radius: 8px;
   transition: 0.2s ease;
   cursor: pointer;
@@ -144,12 +148,14 @@ button:active {
 }
 #wrapper .container #detailed-information {
   position: absolute;
-  background-color: hsl(205deg, 26%, 17%);
   top: 0;
   right: 0;
   left: 0;
   bottom: 0;
   padding: 75px 60px;
+}
+#wrapper .container #detailed-information * {
+  color: inherit;
 }
 @media (max-width: 575px) {
   #wrapper .container #detailed-information {
@@ -157,7 +163,6 @@ button:active {
   }
 }
 #wrapper .container #detailed-information .back-button {
-  background-color: hsl(209deg, 23%, 22%);
   padding: 12px 34px;
   border: none;
   box-shadow: 0px 0px 13px 0px rgba(0, 0, 0, 0.75);
@@ -171,15 +176,16 @@ button:active {
   justify-content: space-between;
   gap: 100px;
 }
-@media (max-width: 575px) {
+@media (max-width: 988px) {
   #wrapper .container #detailed-information .inform-container {
     flex-direction: column;
     gap: 50px;
   }
 }
 #wrapper .container #detailed-information .inform-container .flag img {
-  width: 100%;
-  height: 300px;
+  max-width: 100%;
+  width: 500px;
+  max-height: 300px;
 }
 #wrapper .container #detailed-information .inform-container .information {
   display: flex;
@@ -231,7 +237,6 @@ button:active {
   flex-wrap: wrap;
 }
 #wrapper .container #detailed-information .inform-container .information .borders .border-countrie {
-  background-color: hsl(209deg, 23%, 22%);
   border: none;
   padding: 8px 18px;
   margin-bottom: 24px;
@@ -243,4 +248,52 @@ button:active {
 
 .hide {
   display: none !important;
+}
+
+.light-mode {
+  background-color: hsl(0deg, 24%, 94%);
+  color: hsl(205deg, 26%, 17%);
+}
+.light-mode #wrapper .header {
+  background-color: hsl(0deg, 0%, 100%);
+}
+.light-mode #wrapper .container #search-input,
+.light-mode #wrapper .container #filter {
+  background-color: hsl(0deg, 0%, 100%);
+}
+.light-mode #wrapper .container #countries-container .country {
+  background-color: hsl(0deg, 0%, 100%);
+}
+.light-mode #wrapper .container #detailed-information {
+  background-color: hsl(0deg, 24%, 94%);
+}
+.light-mode #wrapper .container #detailed-information .back-button {
+  background-color: hsl(0deg, 24%, 94%);
+}
+.light-mode #wrapper .container #detailed-information .inform-container .information .borders .border-countrie {
+  background-color: hsl(0deg, 0%, 100%);
+}
+
+.dark-mode {
+  background-color: hsl(205deg, 26%, 17%);
+  color: hsl(0deg, 0%, 100%);
+}
+.dark-mode #wrapper .header {
+  background-color: hsl(209deg, 23%, 22%);
+}
+.dark-mode #wrapper .container #search-input,
+.dark-mode #wrapper .container #filter {
+  background-color: hsl(209deg, 23%, 22%);
+}
+.dark-mode #wrapper .container #countries-container .country {
+  background-color: hsl(209deg, 23%, 22%);
+}
+.dark-mode #wrapper .container #detailed-information {
+  background-color: hsl(205deg, 26%, 17%);
+}
+.dark-mode #wrapper .container #detailed-information .back-button {
+  background-color: hsl(209deg, 23%, 22%);
+}
+.dark-mode #wrapper .container #detailed-information .inform-container .information .borders .border-countrie {
+  background-color: hsl(209deg, 23%, 22%);
 }
