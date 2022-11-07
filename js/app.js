@@ -68,7 +68,7 @@ const createCountryCard = (country) => {
   countryCard.innerHTML = `    
           <img src="${country.flag}" alt="${country.name}"/>
           <div class="info-container">
-          <h4 class="country-name">${country.name}</h4>
+          <h2 class="country-name">${country.name}</h2>
           <p class="population info">Population: ${country.population
             .toString()
             .replace(/\B(?=(\d{3})+(?!\d))/g, ".")}</p>
