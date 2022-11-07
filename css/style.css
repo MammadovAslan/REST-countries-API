@@ -2,6 +2,7 @@
   margin: 0;
   padding: 0;
   font-family: "Nunito Sans", sans-serif;
+  text-decoration: none;
 }
 
 button {
@@ -16,19 +17,23 @@ button:active {
 }
 
 #wrapper .header {
+  position: fixed;
+  z-index: 2;
+  left: 0;
+  right: 0;
+  transition: 0.3s ease;
   padding: 20px 66px;
   display: flex;
   justify-content: space-between;
 }
 #wrapper .header .checkbox-label {
-  position: relative;
   cursor: pointer;
 }
 #wrapper .header .checkbox-label #themes-switch {
-  position: absolute;
-  z-index: -1;
+  visibility: hidden;
 }
 #wrapper .container {
+  padding-top: 66px;
   height: 100%;
   position: relative;
 }
@@ -149,7 +154,7 @@ button:active {
 }
 #wrapper .container #detailed-information {
   position: absolute;
-  top: 0;
+  top: 66px;
   right: 0;
   left: 0;
   bottom: 0;
@@ -241,6 +246,18 @@ button:active {
   border: none;
   padding: 8px 18px;
   margin-bottom: 24px;
+}
+#wrapper .scroll-to-top {
+  display: none;
+  position: fixed;
+  bottom: 20px;
+  right: 15px;
+}
+#wrapper .scroll-to-top .scroll-button {
+  color: inherit;
+}
+#wrapper .scroll-to-top .scroll-button .fa-angles-up {
+  font-size: 26px;
 }
 
 .show {

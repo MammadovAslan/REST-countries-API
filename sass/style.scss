@@ -5,6 +5,7 @@
   margin: 0;
   padding: 0;
   font-family: "Nunito Sans", sans-serif;
+  text-decoration: none;
 }
 
 button {
@@ -20,19 +21,23 @@ button {
 
 #wrapper {
   .header {
+    position: fixed;
+    z-index: 2;
+    left: 0;
+    right: 0;
+    transition: 0.3s ease;
     padding: 20px 66px;
     display: flex;
     justify-content: space-between;
     .checkbox-label {
-      position: relative;
       cursor: pointer;
       #themes-switch {
-        position: absolute;
-        z-index: -1;
+        visibility: hidden;
       }
     }
   }
   .container {
+    padding-top: 66px;
     height: 100%;
     position: relative;
     #search-input,
@@ -143,7 +148,7 @@ button {
     }
     #detailed-information {
       position: absolute;
-      top: 0;
+      top: 66px;
       right: 0;
       left: 0;
       bottom: 0;
@@ -228,6 +233,18 @@ button {
             }
           }
         }
+      }
+    }
+  }
+  .scroll-to-top {
+    display: none;
+    position: fixed;
+    bottom: 20px;
+    right: 15px;
+    .scroll-button {
+      color: inherit;
+      .fa-angles-up {
+        font-size: 26px;
       }
     }
   }

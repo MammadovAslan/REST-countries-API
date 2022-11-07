@@ -226,3 +226,18 @@ if (localStorage.getItem("light-mode")) {
   let result = JSON.parse(localStorage.getItem("light-mode"));
   result.isLight ? setLightTheme() : setDarkTheme();
 }
+
+//*-------------Header toggle-------------
+
+const header = document.querySelector(".header");
+const windowSize = document.documentElement.clientWidth;
+const scrollButton = document.querySelector(".scroll-to-top");
+let lastScrollTop = 0;
+window.addEventListener("scroll", () => {
+  let scrollTop = window.pageYOffset;
+  header.style.top = scrollTop > lastScrollTop ? "-100px" : "0";
+
+  lastScrollTop = scrollTop;
+
+  scrollButton.style.display = scrollTop !== 0 ? "block" : "none";
+});
