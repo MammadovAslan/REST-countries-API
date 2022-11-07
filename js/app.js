@@ -7,19 +7,19 @@ const select = document.querySelector("#filter");
 select.addEventListener("change", function () {
   switch (this.value) {
     case "Africa":
-      getCountries("Africa", null);
+      getCountries("Africa", null, null);
       break;
     case "Americas":
-      getCountries("Americas", null);
+      getCountries("Americas", null, null);
       break;
     case "Europe":
-      getCountries("Europe", null);
+      getCountries("Europe", null, null);
       break;
     case "Asia":
-      getCountries("Asia", null);
+      getCountries("Asia", null, null);
       break;
     case "Oceania":
-      getCountries("Oceania", null);
+      getCountries("Oceania", null, null);
       break;
     default:
       getCountries();
@@ -33,16 +33,28 @@ const input = document.querySelector("#search-input");
 search.addEventListener("submit", function (event) {
   event.preventDefault();
 
-  getCountries(null, input.value.toLowerCase());
+  getCountries(null, input.value.toLowerCase(), null);
   event.target.reset();
 });
 
 //*------------------Display counties--------------------
 
-const getCountries = async (region, countryName) => {
+const getCountries = async (region, countryName, borders) => {
   const data = await fetch("https://restcountries.com/v2/all");
   const countries = await data.json();
   countriesContainer.innerHTML = "";
+  let result = [];
+  if (borders) {
+    countries.forEach((country) => {
+      borders.forEach((border) => {
+        if (country.alpha3Code === border) {
+          result.push(country);
+        }
+      });
+    });
+
+    return result;
+  }
   for (const country of countries) {
     if (region) {
       if (country.region === region) {
@@ -78,6 +90,7 @@ const createCountryCard = (country) => {
       `;
   countryCard.addEventListener("click", function () {
     countriesContainer.classList.replace("show", "hide");
+    console.log(country);
     showDetailedInfo(country);
   });
   return countryCard;
@@ -87,8 +100,8 @@ getCountries();
 
 const getDetailedCard = (country) => {
   const detailetInfo = document.createElement("div");
+  detailetInfo.setAttribute("id", "detailed-information");
   detailetInfo.innerHTML = `
-  <div id="detailed-information">
   <button class="back-button" onclick='getBackToList()'><i class="fa-solid fa-arrow-left"></i>Back</button>
   <div class="inform-container">
     <div class="flag">
@@ -99,13 +112,13 @@ const getDetailedCard = (country) => {
       <div class="country-info">
         <p class="info native-name"><b>Native name</b>: ${country.nativeName}</p>
         <p class="info population"><b>Population</b>: ${country.population
-          .toString()
+          ?.toString()
           .replace(/\B(?=(\d{3})+(?!\d))/g, ".")}</p>
         <p class="info region"><b>Region</b>: ${country.region}</p>
         <p class="info sub-region"><b>Sub Region</b>: ${country.subregion}</p>
-        <p class="info capital"><b>Capital</b>: ${country.capital}</p>
+        <p class="info capital"><b>Capital</b>: ${country?.capital}</p>
         <p class="info area"><b>Area</b>: ${country.area
-          .toString()
+          ?.toString()
           .replace(/\B(?=(\d{3})+(?!\d))/g, ".")} m<sup>2</sup></p>
         <p class="info top-level-domain"><b>Top Level Domain</b>: ${country.topLevelDomain}</p>
         <p class="info currencies"><b>Currencies</b>: ${country.currencies.map((currencie) => {
@@ -117,7 +130,6 @@ const getDetailedCard = (country) => {
       </div>
       <div class="borders">
       <p class="border-countries"><b>Border-Countries</b>:</p>
-      </div>
     </div>
   </div>
 </div>
@@ -146,13 +158,11 @@ const showDetailedInfo = (country) => {
             }
           }
         }
-
         return result;
       })
       .then((resp) => {
         mainContainer.append(getDetailedCard(country));
         const borders = document.querySelector(".borders");
-
         resp.forEach((el) => {
           const border = document.createElement("button");
           border.classList.add("border-countrie");
@@ -179,28 +189,40 @@ const getBackToList = () => {
 };
 
 //*-------------Dark/light mode switch-------------
+
+const checkbox = document.querySelector("#themes-switch");
+const icon = document.querySelector("#mode-icon");
+const modeText = document.querySelector(".mode");
+
 let lightMode = {
   isLight: false,
 };
 
-if (localStorage.getItem("light-mode")) {
-  let result = JSON.parse(localStorage.getItem("light-mode"));
-  result.isLight
-    ? document.body.classList.replace("dark-mode", "light-mode")
-    : document.body.classList.replace("light-mode", "dark-mode");
-}
-
-const checkbox = document.querySelector("#themes-switch");
-
 checkbox.addEventListener("change", () => {
   if (document.body.classList.contains("dark-mode")) {
-    document.body.classList.replace("dark-mode", "light-mode");
+    setLightTheme();
     lightMode.isLight = true;
     localStorage.setItem("light-mode", JSON.stringify(lightMode));
   } else {
-    document.body.classList.replace("light-mode", "dark-mode");
+    setDarkTheme();
     lightMode.isLight = false;
     localStorage.setItem("light-mode", JSON.stringify(lightMode));
   }
 });
-localStorage.clear();
+
+const setLightTheme = () => {
+  document.body.classList.replace("dark-mode", "light-mode");
+  icon.classList.replace("fa-sun", "fa-moon");
+  modeText.innerHTML = "Dark";
+};
+
+const setDarkTheme = () => {
+  document.body.classList.replace("light-mode", "dark-mode");
+  icon.classList.replace("fa-moon", "fa-sun");
+  modeText.innerHTML = "Light";
+};
+
+if (localStorage.getItem("light-mode")) {
+  let result = JSON.parse(localStorage.getItem("light-mode"));
+  result.isLight ? setLightTheme() : setDarkTheme();
+}

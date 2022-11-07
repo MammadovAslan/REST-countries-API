@@ -22,6 +22,7 @@ button:active {
 }
 #wrapper .header .checkbox-label {
   position: relative;
+  cursor: pointer;
 }
 #wrapper .header .checkbox-label #themes-switch {
   position: absolute;

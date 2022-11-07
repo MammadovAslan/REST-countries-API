@@ -25,6 +25,7 @@ button {
     justify-content: space-between;
     .checkbox-label {
       position: relative;
+      cursor: pointer;
       #themes-switch {
         position: absolute;
         z-index: -1;
