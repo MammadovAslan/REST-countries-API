@@ -23,7 +23,7 @@
   <body class="dark-mode">
     <div id="wrapper">
       <header class="header">
-        <h3 class="title">Where in the world?</h3>
+        <h1 class="title">Where in the world?</h1>
         <label for="themes-switch" class="checkbox-label"
           ><i class="fa-regular fa-sun" id="mode-icon"></i> <span class="mode">Light</span> Mode
           <input type="checkbox" id="themes-switch" />
@@ -32,7 +32,9 @@
       <main class="container">
         <div class="forms">
           <form id="search-form">
-            <button class="search-button"><i class="fa-solid fa-magnifying-glass"></i></button>
+            <button class="search-button" id="search-button">
+              <i class="fa-solid fa-magnifying-glass"></i>
+            </button>
             <input
               type="search"
               id="search-input"
@@ -41,7 +43,7 @@
             />
           </form>
           <form id="filter-form">
-            <select id="filter">
+            <select id="filter" aria-label="filter">
               <option value="All" id="option-all" class="region-option">All</option>
               <option value="Africa" id="option-africa" class="region-option">Africa</option>
               <option value="Americas" id="option-america" class="region-option">Americas</option>

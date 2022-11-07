@@ -1,6 +1,6 @@
 const countriesContainer = document.querySelector("#countries-container");
 const mainContainer = document.querySelector(".container");
-const select = document.querySelector("#filter");
+const select = document.querySelector("select");
 
 //*------------------Filter by Region--------------------
 

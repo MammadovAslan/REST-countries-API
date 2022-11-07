@@ -33,6 +33,7 @@ button {
     display: flex;
     justify-content: space-between;
     .title {
+      font-size: 24px;
       @media (max-width: 480px) {
         font-size: 14px;
       }
@@ -50,7 +51,7 @@ button {
     position: relative;
 
     #search-input,
-    #filter {
+    select {
       padding: 12px;
       border: none;
       outline: none;
