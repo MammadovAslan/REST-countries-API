@@ -31,7 +31,7 @@ button:active {
     padding: 20px;
   }
 }
-@media (max-width: 360px) {
+@media (max-width: 480px) {
   #wrapper .header .title {
     font-size: 14px;
   }

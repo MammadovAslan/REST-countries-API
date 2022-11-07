@@ -33,7 +33,7 @@ button {
     display: flex;
     justify-content: space-between;
     .title {
-      @media (max-width: 360px) {
+      @media (max-width: 480px) {
         font-size: 14px;
       }
     }
