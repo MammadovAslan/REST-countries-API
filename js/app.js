@@ -7,19 +7,19 @@ const select = document.querySelector("#filter");
 select.addEventListener("change", function () {
   switch (this.value) {
     case "Africa":
-      getCountries("Africa", null, null);
+      getCountries("Africa", null);
       break;
     case "Americas":
-      getCountries("Americas", null, null);
+      getCountries("Americas", null);
       break;
     case "Europe":
-      getCountries("Europe", null, null);
+      getCountries("Europe", null);
       break;
     case "Asia":
-      getCountries("Asia", null, null);
+      getCountries("Asia", null);
       break;
     case "Oceania":
-      getCountries("Oceania", null, null);
+      getCountries("Oceania", null);
       break;
     default:
       getCountries();
@@ -33,28 +33,16 @@ const input = document.querySelector("#search-input");
 search.addEventListener("submit", function (event) {
   event.preventDefault();
 
-  getCountries(null, input.value.toLowerCase(), null);
+  getCountries(null, input.value.toLowerCase());
   event.target.reset();
 });
 
 //*------------------Display counties--------------------
 
-const getCountries = async (region, countryName, borders) => {
+const getCountries = async (region, countryName) => {
   const data = await fetch("https://restcountries.com/v2/all");
   const countries = await data.json();
   countriesContainer.innerHTML = "";
-  let result = [];
-  if (borders) {
-    countries.forEach((country) => {
-      borders.forEach((border) => {
-        if (country.alpha3Code === border) {
-          result.push(country);
-        }
-      });
-    });
-
-    return result;
-  }
   for (const country of countries) {
     if (region) {
       if (country.region === region) {

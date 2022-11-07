@@ -26,7 +26,7 @@ button {
     left: 0;
     right: 0;
     transition: 0.3s ease;
-    padding: 20px 66px;
+    padding: 20px 36px;
     display: flex;
     justify-content: space-between;
     .checkbox-label {
@@ -40,6 +40,7 @@ button {
     padding-top: 66px;
     height: 100%;
     position: relative;
+
     #search-input,
     #filter {
       padding: 12px;

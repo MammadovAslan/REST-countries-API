@@ -22,7 +22,7 @@ button:active {
   left: 0;
   right: 0;
   transition: 0.3s ease;
-  padding: 20px 66px;
+  padding: 20px 36px;
   display: flex;
   justify-content: space-between;
 }
