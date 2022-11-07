@@ -26,6 +26,16 @@ button:active {
   display: flex;
   justify-content: space-between;
 }
+@media (max-width: 320px) {
+  #wrapper .header {
+    padding: 20px;
+  }
+}
+@media (max-width: 320px) {
+  #wrapper .header .title {
+    font-size: 14px;
+  }
+}
 #wrapper .header .checkbox-label {
   cursor: pointer;
 }

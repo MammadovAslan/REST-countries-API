@@ -27,8 +27,16 @@ button {
     right: 0;
     transition: 0.3s ease;
     padding: 20px 36px;
+    @media (max-width: 320px) {
+      padding: 20px;
+    }
     display: flex;
     justify-content: space-between;
+    .title {
+      @media (max-width: 320px) {
+        font-size: 14px;
+      }
+    }
     .checkbox-label {
       cursor: pointer;
       #themes-switch {
