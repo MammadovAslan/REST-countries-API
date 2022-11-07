@@ -27,13 +27,13 @@ button {
     right: 0;
     transition: 0.3s ease;
     padding: 20px 36px;
-    @media (max-width: 320px) {
+    @media (max-width: 360px) {
       padding: 20px;
     }
     display: flex;
     justify-content: space-between;
     .title {
-      @media (max-width: 370px) {
+      @media (max-width: 360px) {
         font-size: 14px;
       }
     }
