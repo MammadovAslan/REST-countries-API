@@ -1,5 +1,5 @@
 # Frontend Mentor - REST Countries API with color theme switcher
-Site: https://mammadovaslan.github.io/REST-countries-API/
+
 ![Design preview for the REST Countries API with color theme switcher coding challenge](./design/desktop-preview.jpg)
 
 ## Welcome! 👋
